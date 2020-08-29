@@ -1,0 +1,15 @@
+html
+    head
+        title= title
+    style
+        include style.css
+    body
+        img(src=url)
+
+        each price in price_history
+            ul
+                li #{price.price}, #{price.date}
+
+        form
+            input(type="number", placeholder="New Price", name="change_price")
+            input(type="submit", name="change_price_button", value="Change Price")
