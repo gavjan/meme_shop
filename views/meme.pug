@@ -4,13 +4,17 @@ html
     style
         include style.css
     body
-        img(src=url)
+        img(src="../../." + url)
         p= curr_price
         h1="Price History:"
         each price in price_history
             ul
                 li #{price.price}, #{price.date}
 
-        form
+        form(action=img_name method="POST" class=change_price_css)
             input(type="number", placeholder="New Price", name="change_price")
-            input(type="submit", name="change_price_button", value="Change Price")
+            input(type="submit", name="submit", value="Change Price")
+            input(type="hidden", name="_csrf", value=csrfToken)
+        hr
+        p= pages_count  + " pages served during current session"
+

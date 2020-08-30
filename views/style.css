@@ -38,3 +38,6 @@ input {
 input[type=number] {
     margin-left: 40%;
 }
+.hidden {
+    display: none;
+}

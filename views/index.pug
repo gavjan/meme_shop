@@ -4,6 +4,14 @@ html
     style
         include style.css
     body
+        form(action="/sign_in" method="POST" class=sign_in_css)
+            input(type='text', placeholder="username", name="username")
+            input(type="submit", name="username", value="Sign in")
+            input(type="hidden" name="_csrf" value=csrfToken)
+        form(action="/sign_out" method="POST" class=sign_out_css)
+            input(type="submit", name="signout", value="Sign out")
+            input(type="hidden" name="_csrf" value=csrfToken)
+
         h1= message
         img(src="./assets/img/main.jpg")
         hr
@@ -14,3 +22,5 @@ html
                     a(href="./views/" + meme.url)
                         img(src=meme.url)
                         p=meme.price
+        hr
+        p= pages_count  + " pages served during current session"
